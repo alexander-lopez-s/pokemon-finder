@@ -1,4 +1,4 @@
-# Image gallery
+# Pokemon Finder
 
 > A simple
 
