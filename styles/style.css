@@ -75,6 +75,10 @@ img {
   }
 
   .main-data {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     width: 300px; 
     height: auto; 
   }
@@ -87,7 +91,7 @@ img {
   .stats-container {
     width: 320px; 
     height: auto; 
-    background-color: rgb(219, 211, 211);
+    background-color: rgb(252, 246, 246);
     padding: 20px;
     flex-grow: 1;
     display: flex;
