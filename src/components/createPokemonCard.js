@@ -1,46 +1,64 @@
 import pokemonType from "../data.js";
 
 const createPokemonCard = (pokemonData) => {
+
+  // Card container
   const card = document.createElement('div');
-  card.classList.add('pokemon-card');
+  card.classList.add('pokemon-card')
 
-  const mainData = document.createElement('div');
-  mainData.classList.add('main-data');
+  // Main Data Container
+  const mainDataContainer = document.createElement('div');
+  mainDataContainer.classList.add('main-data');
 
+  // Name and Image
   const name = document.createElement('h2');
   name.innerText = pokemonData.name.charAt(0).toUpperCase() + pokemonData.name.slice(1);
-
+  name.classList.add('pokemon-name')
+   
   const image = document.createElement('img');
-  image.src = pokemonData.sprites.other.dream_world.front_default;
+  image.src = pokemonData.sprites.other["official-artwork"].front_default;
   image.alt = pokemonData.name;
 
-  const abilities = document.createElement('div');
-  abilities.classList.add('abilities');
+  mainDataContainer.append(name, image);
 
-  const abilitiesHeading = document.createElement('h2');
+  // Abilities
+  const abilitiesContainer = document.createElement('div');
+  abilitiesContainer.classList.add('abilities');
+
+  const abilitiesHeading = document.createElement('h3');
   abilitiesHeading.innerText = 'Abilities';
+  abilitiesHeading.classList.add('abilities-heading')
 
-  const abilitiesList = document.createElement('div');
-  abilitiesList.classList.add('abilities-list');
+  abilitiesContainer.append(abilitiesHeading);
 
-  // Loop through abilities
   for (const ability of pokemonData.abilities) {
     const abilityName = document.createElement('h3');
     abilityName.innerText = `✔ ${ability.ability.name.charAt(0).toUpperCase() + ability.ability.name.slice(1)}`;
-    abilitiesList.append(abilityName);
+    abilitiesContainer.append(abilityName);
   }
 
-  abilities.append(abilitiesHeading, abilitiesList);
+  mainDataContainer.append(abilitiesContainer);
+  card.append(mainDataContainer);
 
-  const abilitiesRow = document.createElement('div');
-  abilitiesRow.classList.add('abilities-row');
-  abilitiesRow.append(abilities);
+  // Stats Container
+  const statsContainer = document.createElement('div');
+  statsContainer.classList.add('stats-container');
 
+  // Stats List
   const statsList = document.createElement('div');
   statsList.classList.add('stats-list');
 
-  const statsHeading = document.createElement('h2');
+  const pokedexHeading = document.createElement('h3');
+  pokedexHeading.innerText = 'Pokedex';
+  pokedexHeading.classList.add('pokedex-heading')
+
+  const pokedexNumber = document.createElement('h3');
+  pokedexNumber.innerText = `#${pokemonData.order}`; 
+  pokedexNumber.classList.add('pokedex-number')
+
+  const statsHeading = document.createElement('h3');
   statsHeading.innerText = 'Stats';
+  statsHeading.classList.add('stats')
 
   const experience = document.createElement('h3');
   experience.innerText = `🏆 XP: ${pokemonData.base_experience}`;
@@ -49,7 +67,8 @@ const createPokemonCard = (pokemonData) => {
   for (const typeName in pokemonType) {
     if (typeName === pokemonData.types[0].type.name) {
       type.innerText = `🔖 Type: ${pokemonData.types[0].type.name} ${pokemonType[typeName]}`;
-      break; // Exit the loop once the type is found
+      card.classList.add(`${typeName}`);
+      break;
     }
   }
 
@@ -59,11 +78,10 @@ const createPokemonCard = (pokemonData) => {
   const weight = document.createElement('h3');
   weight.innerText = `⚖️ Weight: ${pokemonData.weight}kg`;
 
-  statsList.append(statsHeading, experience, type, height, weight);
+  statsList.append(pokedexHeading, pokedexNumber, statsHeading, experience, type, height, weight); // Add pokedexNumber here
+  statsContainer.append(statsList);
+  card.append(statsContainer);
 
-  mainData.append(name, image, abilitiesRow);
-
-  card.append(mainData, statsList);
   return card;
 };
 
