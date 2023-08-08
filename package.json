@@ -16,5 +16,8 @@
 		"jest": "^29.6.1",
 		"jest-environment-jsdom": "^29.6.1",
 		"prettier": "^2.8.8"
+	},
+	"dependencies": {
+		"canvas": "^2.11.2"
 	}
 }

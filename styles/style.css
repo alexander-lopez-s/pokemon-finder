@@ -1,12 +1,16 @@
-*,
-*::before,
-*::after {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+.main-container {
+    display: flex;
+    justify-content: center;
+    height: 100vh;
+    background-image: url('../assets//pokemon-background.jpg');
+    background-size: cover;
 }
 
-body {
-    background-color: #5a5353;
-    color: whitesmoke;
+h1 {
+    font-family: 'Arial', sans-serif;
+    font-size: 48px;
+    color: #ff3333; /* Red color similar to Pokémon logo */
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
