@@ -89,7 +89,7 @@ img {
   
   /* Style for the stats container */
   .stats-container {
-    width: 320px; 
+    max-width: 350px; 
     height: auto; 
     background-color: rgb(252, 246, 246);
     padding: 20px;
