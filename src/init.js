@@ -1,2 +1,3 @@
-const data = {};
-console.log('Let us build a tod list');
+import addListeners from "./listeners/addListeners.js";
+
+addListeners();
