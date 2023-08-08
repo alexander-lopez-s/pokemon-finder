@@ -53,7 +53,7 @@ const createPokemonCard = (pokemonData) => {
   pokedexHeading.classList.add('pokedex-heading')
 
   const pokedexNumber = document.createElement('h3');
-  pokedexNumber.innerText = `#${pokemonData.order}`; 
+  pokedexNumber.innerText = `#${pokemonData.id}`; 
   pokedexNumber.classList.add('pokedex-number')
 
   const statsHeading = document.createElement('h3');
