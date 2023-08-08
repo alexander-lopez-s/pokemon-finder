@@ -76,7 +76,7 @@ const createPokemonCard = (pokemonData) => {
   height.innerText = `📏 Height: ${pokemonData.height}m`;
 
   const weight = document.createElement('h3');
-  weight.innerText = `⚖️ Weight: ${pokemonData.weight}kg`;
+  weight.innerText = `⚖️ Weight: ${pokemonData.weight}lb`;
 
   statsList.append(pokedexHeading, pokedexNumber, statsHeading, experience, type, height, weight); // Add pokedexNumber here
   statsContainer.append(statsList);
