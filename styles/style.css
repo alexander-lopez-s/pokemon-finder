@@ -8,7 +8,7 @@
     align-items: center;
     height: 100vh;
     background-image: url('../assets//pokemon-background.gif');
-    background-size: cover;
+    background-size:cover;
     font-family: 'Press Start 2P', cursive;
 }
 

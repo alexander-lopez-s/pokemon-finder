@@ -66,17 +66,17 @@ const createPokemonCard = (pokemonData) => {
   const type = document.createElement('h3');
   for (const typeName in pokemonType) {
     if (typeName === pokemonData.types[0].type.name) {
-      type.innerText = `🔖 Type: ${pokemonData.types[0].type.name} ${pokemonType[typeName]}`;
+      type.innerText = `👹  Type: ${pokemonData.types[0].type.name} ${pokemonType[typeName]}`;
       card.classList.add(`${typeName}`);
       break;
     }
   }
 
   const height = document.createElement('h3');
-  height.innerText = `📏 Height: ${pokemonData.height}m`;
+  height.innerText = `📊 Height: ${pokemonData.height}m`;
 
   const weight = document.createElement('h3');
-  weight.innerText = `⚖️ Weight: ${pokemonData.weight}lb`;
+  weight.innerText = `🏋🏽 Weight: ${pokemonData.weight}lb`;
 
   statsList.append(pokedexHeading, pokedexNumber, statsHeading, experience, type, height, weight); // Add pokedexNumber here
   statsContainer.append(statsList);
