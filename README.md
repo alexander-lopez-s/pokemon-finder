@@ -1,26 +1,27 @@
-# Pokemon Finder
+# Pokémon Finder
 
-> A simple
+> A simple app to find Pokémons from 1 to 1010 using PokeAPI
 
 ## Table of contents
 
-- [General info](#general-info)
-- [Screenshots](#screenshots)
-- [Technologies](#technologies)
-- [Setup](#setup)
-- [Features](#features)
-- [Status](#status)
-- [Inspiration](#inspiration)
-- [Contact](#contact)
+- [Pokémon Finder](#pokémon-finder)
+  - [Table of contents](#table-of-contents)
+  - [General info](#general-info)
+  - [Screenshots](#screenshots)
+  - [Technologies](#technologies)
+  - [Setup](#setup)
+  - [Code Examples](#code-examples)
+  - [Features](#features)
+  - [Status](#status)
 
 ## General info
 
 > The objective of the project is to practice separation of concern in
-> JavaScript.
+> JavaScript as well as API consumption.
 
 ## Screenshots
 
-![Example screenshot]()
+![Example screenshot](./planning/screenshot.png);
 
 ## Technologies
 
@@ -36,22 +37,26 @@ clone the repo and start using the stop watch.
 ## Code Examples
 
 ```js
+function removeElementIfExists(element) {
+    if (element && element.parentNode) {
+        element.parentNode.removeChild(element);
+    }
+}
 
+export default removeElementIfExists;
 ```
 
 ## Features
 
 List of features ready and Todos for future development
 
--
--
--
+- Search Pokémon by ID
 
 To-do list:
 
--
--
+- Search Pokémon by name
+- Display more descriptive data
 
 ## Status
 
-Project is: _in progress_
+Project is: _Done_
