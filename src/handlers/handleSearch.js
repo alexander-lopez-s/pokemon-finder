@@ -1,53 +1,31 @@
 import fetchPokemonData from "../apis/fetchPokemonData.js";
 import dom from "../dom.js";
 import createPokemonCard from "../components/createPokemonCard.js";
-import removeElementIfExists from "../utils/removeElementIfExists.js"
-import handelErrorMessage from "../handlers/handleErrorMessage.js"
+import removeElementIfExists from "../utils/removeElementIfExists.js";
+import handleErrorMessage from "../handlers/handleErrorMessage.js";
 
 let currentPokemonCard = null;
-let inputIsValid = true;
-
-async function displayValidPokemonData(pokemonId) {
-    try {
-        const fetchedPokemon = await fetchPokemonData(pokemonId);
-        console.log(fetchedPokemon);
-
-        const newPokemonCard = createPokemonCard(fetchedPokemon);
-
-        removeElementIfExists(currentPokemonCard);
-        dom.container.appendChild(newPokemonCard);
-        currentPokemonCard = newPokemonCard;
-    } catch (error) {
-        console.error('Error displaying Pokémon data', error);
-    }
-}
-
-function handleInvalidInput() {
-    const errorMessage = dom.container.querySelector('.error-message');
-    removeElementIfExists(errorMessage);
-
-    if (currentPokemonCard) {
-        removeElementIfExists(currentPokemonCard);
-        currentPokemonCard = null;
-    }
-
-    handelErrorMessage('Please enter a valid Pokémon ID between 1 and 1010.');
-    inputIsValid = false;
-}
 
 async function displayPokemonData() {
     const pokemonId = dom.searchBar.value;
+    const errorMessage = dom.container.querySelector('.error-message');
 
-    if (isNaN(pokemonId) || pokemonId < 1 || pokemonId > 1010 || (pokemonId.length > 1 && pokemonId.startsWith('0'))) {
-        if (inputIsValid) {
-            handleInvalidInput(pokemonId);
-        }
+    // Clear previous error message and card if they exist
+    removeElementIfExists(errorMessage);
+    removeElementIfExists(currentPokemonCard);
+
+    if (!pokemonId || isNaN(pokemonId) || pokemonId < 1 || pokemonId > 1010) {
+        handleErrorMessage('Please enter a valid number between 1 and 1010.');
     } else {
-        const errorMessage = dom.container.querySelector('.error-message');
-        removeElementIfExists(errorMessage);
-
-        inputIsValid = true;
-        await displayValidPokemonData(pokemonId);
+        try {
+            const fetchedPokemon = await fetchPokemonData(pokemonId);
+            const newPokemonCard = createPokemonCard(fetchedPokemon);
+            dom.container.appendChild(newPokemonCard);
+            currentPokemonCard = newPokemonCard;
+        } catch (error) {
+            console.error('Error displaying Pokémon data', error);
+            handleErrorMessage('An error occurred while searching. Please try again.');
+        }
     }
 }
 
