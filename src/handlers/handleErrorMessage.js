@@ -8,7 +8,7 @@ function handelErrorMessage(message) {
 
     const existingErrorMessage = dom.container.querySelector('.error-message');
     removeElementIfExists(existingErrorMessage);
-
+    
     dom.container.appendChild(errorMessage);
 }
 
