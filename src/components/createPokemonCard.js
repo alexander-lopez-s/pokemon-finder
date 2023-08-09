@@ -1,6 +1,25 @@
-import pokemonType from "../data.js";
-
 const createPokemonCard = (pokemonData) => {
+  const pokemonType = {
+    normal: '🐾',
+    fire: '🔥',
+    water: '💧',
+    electric: '⚡️',
+    grass: '🌿',
+    ice: '❄️',
+    fighting: '🥊',
+    poison: '☠️',
+    ground: '🌍',
+    flying: '🦅',
+    psychic: '🧠',
+    bug: '🐞',
+    rock: '🪨',
+    ghost: '👻',
+    dragon: '🐉',
+    dark: '🌑',
+    steel: '🛡️',
+    fairy: '🧚'
+};
+
 
   // Card container
   const card = document.createElement('div');

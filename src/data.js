@@ -1,22 +1,5 @@
- const pokemonType = {
-    normal: '🐾',
-    fire: '🔥',
-    water: '💧',
-    electric: '⚡️',
-    grass: '🌿',
-    ice: '❄️',
-    fighting: '🥊',
-    poison: '☠️',
-    ground: '🌍',
-    flying: '🦅',
-    psychic: '🧠',
-    bug: '🐞',
-    rock: '🪨',
-    ghost: '👻',
-    dragon: '🐉',
-    dark: '🌑',
-    steel: '🛡️',
-    fairy: '🧚'
-};
+const pokemonData = {
+    pokemonId : null,
+}
 
-export default pokemonType;
+export default pokemonData;
