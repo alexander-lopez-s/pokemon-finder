@@ -1,4 +1,4 @@
-const pokemonType = {
+ const pokemonType = {
     normal: '🐾',
     fire: '🔥',
     water: '💧',

@@ -1,26 +1,11 @@
 import fetchPokemonData from "../apis/fetchPokemonData.js";
 import dom from "../dom.js";
 import createPokemonCard from "../components/createPokemonCard.js";
+import removeElementIfExists from "../utils/removeElementIfExists.js"
+import handelErrorMessage from "../handlers/handleErrorMessage.js"
 
 let currentPokemonCard = null;
 let inputIsValid = true;
-
-function removeElementIfExists(element) {
-    if (element && element.parentNode) {
-        element.parentNode.removeChild(element);
-    }
-}
-
-function displayErrorMessage(message) {
-    const errorMessage = document.createElement('p');
-    errorMessage.classList.add('error-message');
-    errorMessage.textContent = message;
-
-    const existingErrorMessage = dom.container.querySelector('.error-message');
-    removeElementIfExists(existingErrorMessage);
-
-    dom.container.appendChild(errorMessage);
-}
 
 async function displayValidPokemonData(pokemonId) {
     try {
@@ -46,7 +31,7 @@ function handleInvalidInput() {
         currentPokemonCard = null;
     }
 
-    displayErrorMessage('Please enter a valid Pokémon ID between 1 and 1010.');
+    handelErrorMessage('Please enter a valid Pokémon ID between 1 and 1010.');
     inputIsValid = false;
 }
 
