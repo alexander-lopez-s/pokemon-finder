@@ -64,6 +64,7 @@ const createPokemonCard = (pokemonData) => {
   experience.innerText = `🏆 XP: ${pokemonData.base_experience}`;
 
   const type = document.createElement('h3');
+  
   for (const typeName in pokemonType) {
     if (typeName === pokemonData.types[0].type.name) {
       type.innerText = `👹  Type: ${pokemonData.types[0].type.name} ${pokemonType[typeName]}`;
