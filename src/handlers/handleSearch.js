@@ -8,7 +8,7 @@ import pokemonData from "../data.js"
 let currentPokemonCard = null;
 
 async function displayPokemonData() {
-    const pokemonId = dom.searchBar.value;
+    const pokemonId = parseInt(dom.searchBar.value, 10);
     if(pokemonId === pokemonData.pokemonId){
         return;
     }
@@ -16,7 +16,11 @@ async function displayPokemonData() {
      
     if (!pokemonId || isNaN(pokemonId) || pokemonId < 1 || pokemonId > 1010) {
         removeElementIfExists(currentPokemonCard);
+        if(errorMessage){
+            return;
+        } else {
         handleErrorMessage('Please enter a valid number between 1 and 1010.');
+        }
     } else {
 
         const fetchedPokemon = await fetchPokemonData(pokemonId);

@@ -237,3 +237,52 @@ img {
       transform: translateX(3px);
     }
   }
+
+  /* Add this media query to adjust styles for iPhone 11 Pro Max */
+@media (max-width: 414px) {
+  .main-container {
+    justify-content: center;
+  }
+
+  .search-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .search-bar {
+    width: 100%;
+    max-width: 300px;
+  }
+
+  .search-button {
+    width: 100%;
+    max-width: 300px;
+  }
+
+  .pokemon-card {
+    width: 100%;
+    max-width: 300px;
+  }
+  
+  .main-data, .abilities, .stats-container {
+    width: 100%;
+    max-width: 300px;
+  }
+
+  img {
+    width: 120px;
+    height: 100px;
+  }
+
+  .pokemon-name {
+    font-size: 20px;
+  }
+
+  .pokedex-number {
+    padding-bottom: 20px;
+  }
+
+  .error-message {
+    font-size: 14px;
+  }
+}
