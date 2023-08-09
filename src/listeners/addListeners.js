@@ -12,11 +12,6 @@ const addListeners = () => {
       displayPokemonData();
     }
   });
-
-  // On 'change; event
-  dom.searchBar.addEventListener('change', () => {
-    displayPokemonData();
-  });
-};
+}
 
 export default addListeners;
